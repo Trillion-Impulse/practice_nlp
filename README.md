@@ -305,7 +305,8 @@
     sentiment-analysis/
     │
     ├─ data/
-    │   └─ reviews.csv
+    │   └─ raw.csv
+    │   └─ processed.csv
     │
     ├─ src/
     │   ├─ preprocess.py
