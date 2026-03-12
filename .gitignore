@@ -3,3 +3,9 @@
 
 # 가상환경
 .venv/
+
+# Python 캐시 폴더
+__pycache__/
+
+# Python 캐시 파일
+*.pyc
