@@ -12,6 +12,16 @@ def remove_special_characters(text: str) -> str:
 
     return text
 
+def clean_whitespace(text: str) -> str:
+    """
+    여러 개의 공백을 하나의 공백으로 변환
+    문자열 앞뒤 공백 제거
+    """
+
+    text = re.sub(r"\s+", " ", text)
+
+    return text.strip()
+
 if __name__ == "__main__":
 
     sample_text = "이 영화 정말 재미있다!!!!!"
