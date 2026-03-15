@@ -61,3 +61,10 @@ if __name__ == "__main__":
     print("remove_special_characters 함수의 특수문자 제거 테스트")
     print("샘플:", sample_text)
     print("특수문자 제거:", removed)
+
+    # clean_whitespace 테스트
+    sample_text2 = "   이   영화    정말   재미있다   "
+    whitespace_cleaned = clean_whitespace(sample_text2)
+    print("\nclean_whitespace 함수의 공백 정리 테스트")
+    print("샘플:", repr(sample_text2))
+    print("공백 정리:", repr(whitespace_cleaned))
