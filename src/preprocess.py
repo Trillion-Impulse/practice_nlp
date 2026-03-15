@@ -44,6 +44,13 @@ def preprocess_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+def save_data_to_csv(df: pd.DataFrame, save_path: Path):
+    """
+    데이터를 csv로 저장
+    """
+
+    df.to_csv(save_path, index=False)
+
 if __name__ == "__main__":
 
     sample_text = "이 영화 정말 재미있다!!!!!"
