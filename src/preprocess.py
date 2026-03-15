@@ -68,3 +68,10 @@ if __name__ == "__main__":
     print("\nclean_whitespace 함수의 공백 정리 테스트")
     print("샘플:", repr(sample_text2))
     print("공백 정리:", repr(whitespace_cleaned))
+
+    # preprocess_text 테스트
+    sample_text3 = "   이 영화   정말   재미있다!!!!!   "
+    preprocessed = preprocess_text(sample_text3)
+    print("\npreprocess_text 함수의 단일 텍스트 전처리 테스트")
+    print("입력:", repr(sample_text3))
+    print("출력:", repr(preprocessed))
