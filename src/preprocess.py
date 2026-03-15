@@ -5,6 +5,7 @@ import pandas as pd
 def remove_special_characters(text: str) -> str:
     """
     특수문자 제거
+    한글과 공백만 남김
     """
 
     text = re.sub(r"[^가-힣\s]", "", text)
