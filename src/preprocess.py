@@ -22,6 +22,19 @@ def clean_whitespace(text: str) -> str:
 
     return text.strip()
 
+def preprocess_text(text: str) -> str:
+    """
+    단일 텍스트를 전처리
+    1. 특수문자 제거
+        - 한글과 공백만 남김
+    2. 공백 정리
+    """
+
+    text = remove_special_characters(text)
+    text = clean_whitespace(text)
+
+    return text
+
 if __name__ == "__main__":
 
     sample_text = "이 영화 정말 재미있다!!!!!"
