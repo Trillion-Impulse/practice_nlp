@@ -53,9 +53,11 @@ def save_data_to_csv(df: pd.DataFrame, save_path: Path):
 
 if __name__ == "__main__":
 
+    # remove_special_characters 테스트
     sample_text = "이 영화 정말 재미있다!!!!!"
 
     removed = remove_special_characters(sample_text)
 
+    print("remove_special_characters 함수의 특수문자 제거 테스트")
     print("샘플:", sample_text)
     print("특수문자 제거:", removed)
