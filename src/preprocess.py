@@ -35,6 +35,15 @@ def preprocess_text(text: str) -> str:
 
     return text
 
+def preprocess_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    데이터프레임의 리뷰 컬럼 전처리
+    """
+
+    df["review"] = df["review"].apply(preprocess_text)
+
+    return df
+
 if __name__ == "__main__":
 
     sample_text = "이 영화 정말 재미있다!!!!!"
