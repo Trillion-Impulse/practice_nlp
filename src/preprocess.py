@@ -75,3 +75,14 @@ if __name__ == "__main__":
     print("\npreprocess_text 함수의 단일 텍스트 전처리 테스트")
     print("샘플:", repr(sample_text3))
     print("전처리:", repr(preprocessed))
+
+    # preprocess_dataframe 테스트
+    import pandas as pd
+    df = pd.DataFrame({
+        "review": ["이 영화   정말 재미있다!!!", "완전    시간 낭비였다...", "   연기가 어색했다 "],
+        "label": [1, 0, 0]
+    })
+    print("\npreprocess_dataframe 함수의 데이터프레임의 리뷰 컬럼 전처리 테스트")
+    print("\n샘플\n", df)
+    df_processed = preprocess_dataframe(df)
+    print("\n전처리\n", df_processed)
