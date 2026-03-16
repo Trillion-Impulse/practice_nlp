@@ -113,6 +113,13 @@ if __name__ == "__main__":
     print("샘플:", sample_text3)
     print("토큰화:", tokens)
 
+    # remove_stopwords 테스트
+    sample_tokens4 = ["이", "영화", "정말", "재미있다"]
+    filtered_tokens = remove_stopwords(sample_tokens4)
+    print("\nremove_stopwords 함수의 불용어 제거 테스트")
+    print("샘플:", sample_tokens4)
+    print("불용어 제거:", filtered_tokens)
+
     # preprocess_text 테스트
     sample_text6 = "   이 영화   정말   재미있다!!!!!   "
     preprocessed = preprocess_text(sample_text6)
