@@ -86,3 +86,10 @@ if __name__ == "__main__":
     print("\n샘플\n", df)
     df_processed = preprocess_dataframe(df)
     print("\n전처리\n", df_processed)
+
+    # save_data_to_csv 테스트
+    project_root = Path(__file__).parent.parent
+    data_path = project_root / "data" / "test" / "save_test.csv"
+    print("\nsave_data_to_csv 함수의 csv로 데이터 저장 테스트")
+    save_data_to_csv(df, data_path)
+    print("저장 경로: ", data_path)
