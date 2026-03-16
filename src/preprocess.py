@@ -31,6 +31,21 @@ def tokenize(text: str) -> list:
 
     return tokens
 
+STOPWORDS = {
+    "이", "그", "저", "것", "수", "등",
+    "은", "는", "이", "가", "을", "를",
+    "에", "의", "도"
+}
+
+def remove_stopwords(tokens: list) -> list:
+    """
+    불용어 제거
+    """
+
+    filtered_tokens = [token for token in tokens if token not in STOPWORDS]
+
+    return filtered_tokens
+
 def preprocess_text(text: str) -> str:
     """
     단일 텍스트를 전처리
