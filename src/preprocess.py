@@ -22,6 +22,15 @@ def clean_whitespace(text: str) -> str:
 
     return text.strip()
 
+def tokenize(text: str) -> list:
+    """
+    공백 기준 토큰화
+    """
+
+    tokens = text.split()
+
+    return tokens
+
 def preprocess_text(text: str) -> str:
     """
     단일 텍스트를 전처리
