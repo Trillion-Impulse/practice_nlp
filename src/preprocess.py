@@ -46,6 +46,13 @@ def remove_stopwords(tokens: list) -> list:
 
     return filtered_tokens
 
+def tokens_to_text(tokens: list) -> str:
+    """
+    토큰 리스트를 다시 문장으로 변환
+    """
+
+    return " ".join(tokens)
+
 def preprocess_text(text: str) -> str:
     """
     단일 텍스트를 전처리
