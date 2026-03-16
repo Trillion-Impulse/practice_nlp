@@ -59,10 +59,16 @@ def preprocess_text(text: str) -> str:
     1. 특수문자 제거
         - 한글과 공백만 남김
     2. 공백 정리
+    3. 공백 기준 토큰화
+    4. 불용어 제거
+    5. 토큰 리스트를 다시 문장으로 변환
     """
 
     text = remove_special_characters(text)
     text = clean_whitespace(text)
+    tokens = tokenize(text)
+    tokens = remove_stopwords(tokens)
+    text = tokens_to_text(tokens)
 
     return text
 
