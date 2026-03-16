@@ -120,6 +120,13 @@ if __name__ == "__main__":
     print("샘플:", sample_tokens4)
     print("불용어 제거:", filtered_tokens)
 
+    # tokens_to_text 테스트
+    sample_tokens5 = ["영화", "정말", "재미있다"]
+    returned_text = tokens_to_text(sample_tokens5)
+    print("\ntokens_to_text 함수의 토큰 리스트를 다시 문장으로 변환 테스트")
+    print("샘플:", sample_tokens5)
+    print("문장:", returned_text)
+
     # preprocess_text 테스트
     sample_text6 = "   이 영화   정말   재미있다!!!!!   "
     preprocessed = preprocess_text(sample_text6)
