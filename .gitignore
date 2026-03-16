@@ -9,3 +9,6 @@ __pycache__/
 
 # Python 캐시 파일
 *.pyc
+
+# test 폴더
+data/test/
