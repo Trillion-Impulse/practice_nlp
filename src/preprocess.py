@@ -106,6 +106,13 @@ if __name__ == "__main__":
     print("샘플:", repr(sample_text2))
     print("공백 정리:", repr(whitespace_cleaned))
 
+    # tokenize 테스트
+    sample_text3 = "   이   영화    정말   재미있다   "
+    tokens = tokenize(sample_text3)
+    print("\ntokenize 함수의 공백 기준 토큰화 테스트")
+    print("샘플:", sample_text3)
+    print("토큰화:", tokens)
+
     # preprocess_text 테스트
     sample_text6 = "   이 영화   정말   재미있다!!!!!   "
     preprocessed = preprocess_text(sample_text6)
