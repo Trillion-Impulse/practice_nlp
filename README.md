@@ -243,16 +243,19 @@
                     - 문서3: 나는 바나나를 먹었다
             2. 첫번째 아이디어: TF (Term Frequency)
                 - TF=단어가문서에서등장한횟수
+                - 수식  
+                    ![TF](https://latex.codecogs.com/png.image?\dpi{120}TF=\frac{t}{d})
+                    - t: 해당 문서에서 단어 t가 등장한 횟수
+                    - d: 문서 d의 전체 단어 수
             3. 문제: 어떤 단어는 모든 문서에 다 있음
                 - ex: 나는, 그리고 등
                 - 모든 문서에 있는 단어는 중요도를 낮추자
             4. 두번째 아이디어: IDF (Inverse Document Frequency)
                 - 많은 문서에 나타날수록 중요도 낮다
                 - IDF는 “전체 문서에서 봤을 때 이 단어가 얼마나 희귀한가”를 측정하려는 값
-                - 수식
-                    $$
-                    중요도 |propto |frac{1}{등장한문서수}
-                    $$
+                - 수식  
+                    ![Importance](https://latex.codecogs.com/png.image?\dpi{120}Importance\propto\frac{1}{document})
+                    - document: 등장한 문서 수
                 - 예
                     | 단어  | 등장 문서수 | 값 |
                     | --- | ------ | --- |
@@ -269,10 +272,10 @@
             6. 로그 사용
                 - 로그의 역할: 큰 숫자 차이를 줄여줌
             7. 그래서 IDF 수식이 탄생
-                - 수식
-                    $$
-                    IDF = \log \left(\frac{전체문서수}{단어가등장한문서수}\right)
-                    $$
+                - 수식  
+                    ![idf](https://latex.codecogs.com/png.image?\dpi{120}IDF=\log\left(\frac{N}{df}\right))
+                    - N: 전체 문서 수
+                    - df: 단어가 등장한 문서 수
             8. 두 아이디어 합침
                 - TF-IDF=TF×IDF
                 - 이 문서에서는 자주 나오지만 다른 문서에서는 잘 안 나오는 단어
