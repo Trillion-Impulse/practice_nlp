@@ -40,3 +40,13 @@ def save_vectorizer(vectorizer: TfidfVectorizer, save_path: Path) -> None:
     """
 
     joblib.dump(vectorizer, save_path)
+
+
+def load_vectorizer(load_path: Path) -> TfidfVectorizer:
+    """
+    저장된 벡터라이저 불러오기
+    """
+
+    vectorizer = joblib.load(load_path)
+
+    return vectorizer
