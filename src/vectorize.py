@@ -1,6 +1,8 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from typing import List
 from scipy.sparse import csr_matrix
+from pathlib import Path
+import joblib
 
 def create_vectorizer() -> TfidfVectorizer:
     """
@@ -30,3 +32,11 @@ def transform_text(vectorizer: TfidfVectorizer, texts: List[str]) -> csr_matrix:
     vectors = vectorizer.transform(texts)
 
     return vectors
+
+
+def save_vectorizer(vectorizer: TfidfVectorizer, save_path: Path) -> None:
+    """
+    벡터라이저를 파일로 저장
+    """
+
+    joblib.dump(vectorizer, save_path)
