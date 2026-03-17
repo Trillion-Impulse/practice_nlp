@@ -1,5 +1,5 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
-
+from typing import List
 
 def create_vectorizer() -> TfidfVectorizer:
     """
@@ -7,5 +7,15 @@ def create_vectorizer() -> TfidfVectorizer:
     """
 
     vectorizer = TfidfVectorizer()
+
+    return vectorizer
+
+
+def fit_vectorizer(vectorizer: TfidfVectorizer, texts: List[str]) -> TfidfVectorizer:
+    """
+    벡터라이저 학습
+    """
+
+    vectorizer.fit(texts)
 
     return vectorizer
