@@ -6,3 +6,11 @@ def create_model() -> MultinomialNB:
     """
     model = MultinomialNB()
     return model
+
+
+def train_model(model: MultinomialNB, X, y) -> MultinomialNB:
+    """
+    모델 학습
+    """
+    model.fit(X, y)
+    return model
