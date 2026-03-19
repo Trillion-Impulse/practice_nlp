@@ -1,4 +1,6 @@
 from sklearn.naive_bayes import MultinomialNB
+from pathlib import Path
+import joblib
 
 def create_model() -> MultinomialNB:
     """
@@ -14,3 +16,11 @@ def train_model(model: MultinomialNB, X, y) -> MultinomialNB:
     """
     model.fit(X, y)
     return model
+
+
+def save_model(model: MultinomialNB, save_path: Path) -> None:
+    """
+    모델 저장
+    """
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+    joblib.dump(model, save_path)
