@@ -24,3 +24,11 @@ def save_model(model: MultinomialNB, save_path: Path) -> None:
     """
     save_path.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(model, save_path)
+
+
+def load_model(load_path: Path) -> MultinomialNB:
+    """
+    모델 불러오기
+    """
+    model = joblib.load(load_path)
+    return model
