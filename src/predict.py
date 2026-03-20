@@ -23,3 +23,23 @@ def predict_sentiment_text(text: str, model, vectorizer) -> int:
     prediction = model.predict(vector)
 
     return int(prediction[0])
+
+
+def predict_sentiment_list(texts: List[str], model, vectorizer) -> List[int]:
+    """
+    여러 문장 예측
+
+    return:
+        1 (긍정) 또는 0 (부정)
+    """
+
+    # 1. 전처리
+    processed_texts: List[str] = [preprocess_text(text) for text in texts]
+
+    # 2. 벡터화
+    vectors = transform_text(vectorizer, processed_texts)
+
+    # 3. 예측
+    predictions = model.predict(vectors)
+
+    return list(predictions)
