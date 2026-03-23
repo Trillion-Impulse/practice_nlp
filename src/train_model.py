@@ -44,6 +44,7 @@ if __name__ == "__main__":
         transform_text,
         save_vectorizer
     )
+    from sklearn.model_selection import train_test_split
 
     # 1. raw_data 경로 설정
     project_root = Path(__file__).parent.parent
@@ -56,21 +57,34 @@ if __name__ == "__main__":
     df = preprocess_dataframe(df)
 
     # 4. X, y 분리
-    X_texts = df["review"]
+    X_texts = df["review"].tolist()
     y = df["label"]
 
-    # 5. 벡터화
-    vectorizer = create_vectorizer()
-    vectorizer = fit_vectorizer(vectorizer, X_texts)
-    X_vectors = transform_text(vectorizer, X_texts)
+    # 5. train/test 분리
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_texts, y, test_size=0.2, random_state=42
+    )
 
-    # 6. 모델 생성 및 학습
+    # 6. 벡터화 (train data)
+    vectorizer = create_vectorizer()
+    vectorizer = fit_vectorizer(vectorizer, X_train)
+    X_train_vectors = transform_text(vectorizer, X_train)
+    X_test_vectors = transform_text(vectorizer, X_test)
+
+    # 7. 모델 생성 및 학습
     model = create_model()
-    model = train_model(model, X_vectors, y)
+    model = train_model(model, X_train_vectors, y_train)
     print("모델 학습 완료")
 
-    # 7. 저장
-    model_path = project_root / "data" / "test" / "sentiment_model.pkl"
-    save_model(model, model_path)
+    # 8. 정확도 테스트
+    accuracy = model.score(X_test_vectors, y_test)
+    print(f"테스트 정확도: {accuracy:.2f}")
 
+    # 9. 저장
+    vectorizer_path = project_root / "data" / "test" / "test_tfidf_vectorizer.pkl"
+    save_vectorizer(vectorizer, vectorizer_path)
+    print("벡터라이저 저장 완료")
+
+    model_path = project_root / "data" / "test" / "test_sentiment_model.pkl"
+    save_model(model, model_path)
     print("모델 저장 완료")
