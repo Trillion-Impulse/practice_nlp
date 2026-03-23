@@ -1,9 +1,10 @@
 from pathlib import Path
 from src.load_data import load_data
 from src.preprocess import preprocess_dataframe
-from src.vectorize import create_vectorizer, fit_vectorizer, transform_text, save_vectorizer
-from src.train_model import create_model, train_model, save_model
+from src.vectorize import create_vectorizer, fit_vectorizer, transform_text, save_vectorizer, load_vectorizer
+from src.train_model import create_model, train_model, save_model, load_model
 from sklearn.model_selection import train_test_split
+from src.predict import predict_sentiment_text
 
 # 학습 함수
 def train():
@@ -55,3 +56,24 @@ def train():
     vectorizer_path = model_dir / "tfidf_vectorizer.pkl"
     save_vectorizer(vectorizer, vectorizer_path)
     print("벡터라이저 저장 완료:", vectorizer_path)
+
+# 단일 텍스트 예측 함수
+def predict(text: str):
+
+    print("예측 실행")
+
+    project_root = Path(__file__).parent
+    model_dir = project_root / "data" / "model"
+
+    # 모델 & 벡터라이저 불러오기
+    model = load_model(model_dir / "sentiment_model.pkl")
+    vectorizer = load_vectorizer(model_dir / "tfidf_vectorizer.pkl")
+
+    # 예측
+    result = predict_sentiment_text(text, model, vectorizer)
+
+    # 결과 변환
+    sentiment_labels = {1: "긍정", 0: "부정"}
+
+    print("입력 문장:", text)
+    print("예측 결과:", sentiment_labels[result])
