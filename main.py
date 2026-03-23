@@ -8,6 +8,13 @@ from src.predict import predict_sentiment_text
 
 # 학습 함수
 def train():
+    """
+    학습 함수
+    1. raw data를 사용하여 모델 학습
+    2. 정확도 평가
+    3. 모델 저장
+    4. 벡터라이저 저장
+    """
 
     print("모델 학습 시작")
 
