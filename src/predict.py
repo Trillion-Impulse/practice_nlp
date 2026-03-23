@@ -43,3 +43,28 @@ def predict_sentiment_list(texts: List[str], model, vectorizer) -> List[int]:
     predictions = model.predict(vectors)
 
     return list(predictions)
+
+
+if __name__ == "__main__":
+
+    from pathlib import Path
+    from src.train_model import load_model
+    from src.vectorize import load_vectorizer
+
+    project_root = Path(__file__).parent.parent
+
+    # 모델 & 벡터라이저 경로
+    model_path = project_root / "data" / "test" / "test_sentiment_model.pkl"
+    vectorizer_path = project_root / "data" / "test" / "test_tfidf_vectorizer.pkl"
+
+    # 불러오기
+    model = load_model(model_path)
+    vectorizer = load_vectorizer(vectorizer_path)
+
+    # 테스트
+    test_sentence = "이 영화 정말 다시 보고 싶은 최고의 영화였다~!~!"
+
+    result = predict_sentiment_text(test_sentence, model, vectorizer)
+
+    print("입력 문장:", test_sentence)
+    print("예측 결과:", result)
