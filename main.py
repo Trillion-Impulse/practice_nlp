@@ -5,6 +5,7 @@ from src.vectorize import create_vectorizer, fit_vectorizer, transform_text, sav
 from src.train_model import create_model, train_model, save_model, load_model
 from sklearn.model_selection import train_test_split
 from src.predict import predict_sentiment_text
+import argparse
 
 # 학습 함수
 def train():
@@ -90,3 +91,35 @@ def predict(text: str):
 
     print("입력 문장:", text)
     print("예측 결과:", sentiment_labels[result])
+
+# CLI 처리
+def main():
+    parser = argparse.ArgumentParser(description="감정 분석 CLI")
+
+    parser.add_argument(
+        "--train",
+        action="store_true",
+        help="모델 학습 실행"
+    )
+
+    parser.add_argument(
+        "--predict",
+        type=str,
+        default=None,
+        help="예측할 문장 입력"
+    )
+
+    args = parser.parse_args()
+
+    if args.train:
+        train()
+
+    elif args.predict is not None:
+        predict(args.predict)
+
+    else:
+        print("옵션을 입력하세요")
+        parser.print_help()
+
+if __name__ == "__main__":
+    main()
